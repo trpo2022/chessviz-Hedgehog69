@@ -1,5 +1,6 @@
-main
+
 *.txt
 *.o
+*main
 *.Makefile.swp
 main.c~
