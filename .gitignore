@@ -1,6 +1,4 @@
-
-*.txt
+*.a
+*.d
 *.o
-*main
-*.Makefile.swp
-main.c~
+bin/chessviz
