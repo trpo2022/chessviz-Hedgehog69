@@ -5,23 +5,25 @@
 #include <stdlib.h>
 #include <string.h>
 
-char init_desk[8][8] = {{'r', 'n', 'b', 'q', 'k', 'b', 'n', 'r'},
-                        {'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'},
-                        {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-                        {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-                        {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-                        {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-                        {'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'},
-                        {'R', 'N', 'B', 'K', 'Q', 'B', 'N', 'R'}};
+char init_desk[8][8]
+        = {{'r', 'n', 'b', 'q', 'k', 'b', 'n', 'r'},
+           {'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'},
+           {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+           {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+           {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+           {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+           {'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'},
+           {'R', 'N', 'B', 'K', 'Q', 'B', 'N', 'R'}};
 
-char desk[8][8] = {{'r', 'n', 'b', 'q', 'k', 'b', 'n', 'r'},
-                   {'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'},
-                   {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-                   {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-                   {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-                   {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-                   {'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'},
-                   {'R', 'N', 'B', 'K', 'Q', 'B', 'N', 'R'}};
+char desk[8][8]
+        = {{'r', 'n', 'b', 'q', 'k', 'b', 'n', 'r'},
+           {'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p'},
+           {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+           {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+           {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+           {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
+           {'P', 'P', 'P', 'P', 'P', 'P', 'P', 'P'},
+           {'R', 'N', 'B', 'K', 'Q', 'B', 'N', 'R'}};
 
 char p[8];
 int b[5];
@@ -116,7 +118,7 @@ CTEST(Moving, checkpeshka) // Тест белой пешки
     ASSERT_EQUAL(exp5, c5);
     ASSERT_EQUAL(exp6, c6);
 
- //   desk[8][8] = init_desk[8][8];
+    //   desk[8][8] = init_desk[8][8];
 }
 
 //-------------------------------------------------------------
@@ -128,52 +130,44 @@ CTEST(Moving, check_peshka) // Тест чёрной пешки
         b[i] = p[i];
     check_figure_move(b);
     int c1 = check_peshka(b);
-
     strcpy(p, "B2-B4"); // Первый ход на две клетки
     for (int i = 0; i < 5; i++)
         b[i] = p[i];
     check_figure_move(b);
     int c2 = check_peshka(b);
-
     strcpy(p, "A3-A5"); // Не первый ход на две клетки
     for (int i = 0; i < 5; i++)
         b[i] = p[i];
     check_figure_move(b);
     int c3 = check_peshka(b);
-
     strcpy(p, "B4-С5"); // Ход по диагонали
     for (int i = 0; i < 5; i++)
         b[i] = p[i];
     check_figure_move(b);
     int c4 = check_peshka(b);
-
     strcpy(p, "B4-B3"); // Ход назад
     for (int i = 0; i < 5; i++)
         b[i] = p[i];
     check_figure_move(b);
     int c5 = check_peshka(b);
-
     strcpy(p, "С2-С4"); // Первый ход через фигуру
     desk[2][2] = 'N';
     for (int i = 0; i < 5; i++)
         b[i] = p[i];
     check_figure_move(b);
     int c6 = check_peshka(b);
-
     const int exp1 = 1;
     const int exp2 = 1;
     const int exp3 = 0;
     const int exp4 = 0;
     const int exp5 = 0;
     const int exp6 = 0;
-
     ASSERT_EQUAL(exp1, c1);
     ASSERT_EQUAL(exp2, c2);
     ASSERT_EQUAL(exp3, c3);
     ASSERT_EQUAL(exp4, c4);
     ASSERT_EQUAL(exp5, c5);
     ASSERT_EQUAL(exp6, c6);
-
     desk[8][8] = init_desk[8][8];
 }
 */
@@ -242,7 +236,7 @@ CTEST(Moving, checkladya) // Тест ладьи
     ASSERT_EQUAL(exp6, c6);
     ASSERT_EQUAL(exp7, c7);
 
-  //  desk[8][8] = init_desk[8][8];
+    //  desk[8][8] = init_desk[8][8];
 }
 
 //-------------------------------------------------------------
@@ -339,7 +333,7 @@ CTEST(Moving, checkhorse) // Тест horse
     ASSERT_EQUAL(exp9, c9);
     ASSERT_EQUAL(exp10, c10);
 
-   // desk[8][8] = init_desk[8][8];
+    // desk[8][8] = init_desk[8][8];
 }
 
 //-------------------------------------------------------------
@@ -399,7 +393,7 @@ CTEST(Moving, checkelephant) // Тест elephant
     ASSERT_EQUAL(exp5, c5);
     ASSERT_EQUAL(exp6, c6);
 
-  //  desk[8][8] = init_desk[8][8];
+    //  desk[8][8] = init_desk[8][8];
 }
 
 //-------------------------------------------------------------
@@ -482,5 +476,5 @@ CTEST(Moving, checkking) // Тест короля
     ASSERT_EQUAL(exp8, c8);
     ASSERT_EQUAL(exp9, c9);
 
-   // desk[8][8] = init_desk[8][8];
+    // desk[8][8] = init_desk[8][8];
 }
